@@ -9,7 +9,7 @@ from django.db.models import signals
 from django.test.testcases import disable_transaction_methods, restore_transaction_methods
 from django.test.simple import dependency_ordered
 
-from testutils.dbproxy import DatabaseProxy
+from testhelpers.dbproxy import DatabaseProxy
 
 
 class Transactionless(object):
