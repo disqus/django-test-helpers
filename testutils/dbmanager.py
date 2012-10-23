@@ -13,6 +13,16 @@ from testutils.dbproxy import DatabaseProxy
 
 
 class Transactionless(object):
+    """
+    Runs a block of code in transactional isolations.
+
+    If fixtures are provided, they will be loaded, and reloaded
+    upon exiting the block.
+
+    >>> with Transactionless():
+    >>>     # do something
+    >>>     pass
+    """
     def __init__(self, fixtures=None):
         self.fixtures = fixtures
 
@@ -69,6 +79,8 @@ def save_migrations_and_flush(original_func):
 class TemporaryDatabase(object):
     """
     Manages bootstrapping a testing database and loading global fixtures.
+
+    Supports auto migrating (and saving) nashvegas tables.
 
     >>> with TemporaryDatabase():
     >>>    # do some stuff
