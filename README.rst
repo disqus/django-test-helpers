@@ -24,6 +24,10 @@ Create a temporary database:
         # do some stuff
         pass
 
+.. note:: If you're using Nashvegas, the TemporaryDatabase will attempt to automatically migrate your database
+          and preserve executed migrations.
+
+
 Run some commands in transactional isolation:
 
 ::
